@@ -1,4 +1,5 @@
-###Andriod Seamless ViewPager Header 
+Andriod Seamless ViewPager Header 
+============
 ####Introduction
 SeamlessViewpagerHeader offers a Viewpager with a scrollable header, like Android Lollipop Contact.
 ####Screenshot
