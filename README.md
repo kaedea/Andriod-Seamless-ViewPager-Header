@@ -1,4 +1,5 @@
 ###Andriod Seamless ViewPager Header 
+
 ####Introduction
 SeamlessViewpagerHeader offers a Viewpager with a scrollable header, like Android Lollipop Contact.
 ####Screenshot
@@ -11,6 +12,10 @@ SeamlessViewpagerHeader offers a Viewpager with a scrollable header, like Androi
 
 ####Sample Apk
 [Apk File](/extras/app-debug.apk)
+
+####Usage
+It is difficult to seperate the project as a library, therefore please take a look at the `ListViewFragment.java` and `ScrollViewFragment.java` and add what you nedd here.
+If you want to change the layout, please edit `activity_main.xml`.
 
 
 ###License
