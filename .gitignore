@@ -2,3 +2,6 @@
 /.gradle
 /.idea
 /SeamlessViewpagerHeader.iml
+/app/build
+/app/app.iml
+/app/*.iml
