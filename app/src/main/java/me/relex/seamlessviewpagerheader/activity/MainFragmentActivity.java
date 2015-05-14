@@ -19,10 +19,9 @@ public class MainFragmentActivity extends ActionBarActivity implements Scrollabl
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_fragment);
-		Fragment fragment = new MainFragment();
-		getSupportFragmentManager().beginTransaction()
-				.add(R.id.container, fragment, FRAGMENT_MAIN)
-				.commit();
+		Fragment fragment = getSupportFragmentManager().findFragmentByTag(FRAGMENT_MAIN);
+		if (fragment==null)fragment= new MainFragment();
+		getSupportFragmentManager().beginTransaction().add(R.id.container, fragment, FRAGMENT_MAIN).commit();
 	}
 
 	@Override

@@ -1,17 +1,21 @@
 package me.relex.seamlessviewpagerheader.activity;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import me.relex.seamlessviewpagerheader.R;
 
-public class ListActivity extends ActionBarActivity {
+public class ListActivity extends ActionBarActivity implements View.OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_list);
+		findViewById(R.id.tv_list_activity).setOnClickListener(this);
+		findViewById(R.id.tv_list_fragment).setOnClickListener(this);
 	}
 
 
@@ -35,5 +39,17 @@ public class ListActivity extends ActionBarActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()){
+			case R.id.tv_list_activity:
+				startActivity(new Intent(this,MainActivity.class));
+				break;
+			case R.id.tv_list_fragment:
+				startActivity(new Intent(this,MainFragmentActivity.class));
+				break;
+		}
 	}
 }
