@@ -1,4 +1,4 @@
-package me.relex.seamlessviewpagerheader;
+package me.relex.seamlessviewpagerheader.activity;
 
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
+import me.relex.seamlessviewpagerheader.R;
 import me.relex.seamlessviewpagerheader.fragment.ListViewFragment;
 import me.relex.seamlessviewpagerheader.fragment.ScrollViewFragment;
 import me.relex.seamlessviewpagerheader.tools.ScrollableFragmentListener;
@@ -27,56 +28,59 @@ public class MainActivity extends ActionBarActivity
         implements TouchCallbackLayout.TouchEventListener, ScrollableFragmentListener,
         ViewPagerHeaderHelper.OnViewPagerTouchListener {
 
-    private static final long DEFAULT_DURATION = 300L;
-    private static final float DEFAULT_DAMPING = 1.5f;
+	private static final long  DEFAULT_DURATION = 300L;
+	private static final float DEFAULT_DAMPING  = 1.5f;
+	private static final String TAG = "MainActivity";
 
-    private SparseArrayCompat<ScrollableListener> mScrollableListenerArrays =
-            new SparseArrayCompat<>();
-    private ViewPager mViewPager;
-    private View mHeaderLayoutView;
-    private ViewPagerHeaderHelper mViewPagerHeaderHelper;
+	private SparseArrayCompat<ScrollableListener> mScrollableListenerArrays =
+			new SparseArrayCompat<>();
+	private ViewPager             mViewPager;
+	private View                  mHeaderLayoutView;
+	private ViewPagerHeaderHelper mViewPagerHeaderHelper;
 
-    private int mTouchSlop;
-    private int mTabHeight;
-    private int mHeaderHeight;
+	private int mTouchSlop;
+	private int mTabHeight;
+	private int mHeaderHeight;
 
-    private Interpolator mInterpolator = new DecelerateInterpolator();
+	private Interpolator mInterpolator = new DecelerateInterpolator();
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
-        mTouchSlop = ViewConfiguration.get(this).getScaledTouchSlop();
-        mTabHeight = getResources().getDimensionPixelSize(R.dimen.tabs_height);
-        mHeaderHeight = getResources().getDimensionPixelSize(R.dimen.viewpager_header_height);
+		mTouchSlop = ViewConfiguration.get(this).getScaledTouchSlop();
+		mTabHeight = getResources().getDimensionPixelSize(R.dimen.tabs_height);
+		mHeaderHeight = getResources().getDimensionPixelSize(R.dimen.viewpager_header_height);
 
-        mViewPagerHeaderHelper = new ViewPagerHeaderHelper(this, this);
+		mViewPagerHeaderHelper = new ViewPagerHeaderHelper(this, this);
 
-        TouchCallbackLayout touchCallbackLayout = (TouchCallbackLayout) findViewById(R.id.layout);
-        touchCallbackLayout.setTouchEventListener(this);
+		TouchCallbackLayout touchCallbackLayout = (TouchCallbackLayout) findViewById(R.id.layout);
+		touchCallbackLayout.setTouchEventListener(this);
 
-        mHeaderLayoutView = findViewById(R.id.header);
+		mHeaderLayoutView = findViewById(R.id.header);
 
-        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.tabs);
-        //slidingTabLayout.setDistributeEvenly(true);
+		SlidingTabLayout slidingTabLayout = (SlidingTabLayout) findViewById(R.id.tabs);
+		//slidingTabLayout.setDistributeEvenly(true);
 
-        mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        mViewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+		mViewPager = (ViewPager) findViewById(R.id.viewpager);
+		mViewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
 
-        slidingTabLayout.setViewPager(mViewPager);
+		slidingTabLayout.setViewPager(mViewPager);
 
-        ViewCompat.setTranslationY(mViewPager, mHeaderHeight);
-    }
+		ViewCompat.setTranslationY(mViewPager, mHeaderHeight);
+	}
 
-    @Override public boolean onLayoutInterceptTouchEvent(MotionEvent event) {
+	@Override
+	public boolean onLayoutInterceptTouchEvent(MotionEvent event) {
 
-        return mViewPagerHeaderHelper.onLayoutInterceptTouchEvent(event,
-                mTabHeight + mHeaderHeight);
-    }
+		return mViewPagerHeaderHelper.onLayoutInterceptTouchEvent(event,
+				mTabHeight + mHeaderHeight);
+	}
 
-    @Override public boolean onLayoutTouchEvent(MotionEvent event) {
-        return mViewPagerHeaderHelper.onLayoutTouchEvent(event);
+	@Override
+	public boolean onLayoutTouchEvent(MotionEvent event) {
+		return mViewPagerHeaderHelper.onLayoutTouchEvent(event);
     }
 
     @Override public boolean isViewBeingDragged(MotionEvent event) {
@@ -143,7 +147,7 @@ public class MainActivity extends ActionBarActivity
 		try {
 			dispatcher.dispatchTouchEvent(motionEvent);
 		} catch (Throwable e) {
-			Log.e("kaede", "simulateTouchEvent error: " + e.toString());
+			Log.e(TAG, "simulateTouchEvent error: " + e.toString());
 		} finally {
 			motionEvent.recycle();
 		}
