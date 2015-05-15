@@ -7,7 +7,7 @@ SeamlessViewpagerHeader offers a Viewpager with a scrollable header, like Androi
 
 ####Feature
 
- - Lollipop Contact or Google Play like UI
+ - Lollipop Contact or Google Play Pager like UI
  - Scrollable Header
  - Seamless Scrolling
  - Support in both Activity and Fragment
