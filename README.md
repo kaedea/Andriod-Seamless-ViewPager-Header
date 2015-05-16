@@ -20,6 +20,10 @@ It is difficult to seperate the project as a library, therefore please take a lo
 If you want to change the layout, please edit `activity_main.xml`.
 If you want to use it in a `Activity`, please refer to `MainActivity`, or if you want to use it in a `Fragment`, please refer to `MainFragment`.
 
+##中文
+###Andriod滑动无缝切换的ViewPager
+带有HeaderView的ViewPager，如Android5.0的系统自带联系人的布局（或者Google Play的布局），滑动的时候，优先滑动HeaderView再滑动ViewPager，滑动无缝对接，不需要分两次完成。可用在Activity和Fragment上（参考Demo）.
+
 
 ###License
 
