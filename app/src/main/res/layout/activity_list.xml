@@ -18,6 +18,10 @@
                   android:id="@+id/tv_list_fragment"
                   android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="FRAGMENT"
                   android:textColor="#FFFFFF"/>
+        <TextView android:layout_marginLeft="10dp" android:padding="5dp" android:background="@drawable/selector_bg"
+                  android:id="@+id/tv_list_github"
+                  android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GITHUB"
+                  android:textColor="#FFFFFF"/>
     </LinearLayout>
 
 </RelativeLayout>

@@ -1,10 +1,9 @@
 package me.relex.seamlessviewpagerheader.activity;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import me.relex.seamlessviewpagerheader.R;
 
@@ -16,10 +15,11 @@ public class ListActivity extends ActionBarActivity implements View.OnClickListe
 		setContentView(R.layout.activity_list);
 		findViewById(R.id.tv_list_activity).setOnClickListener(this);
 		findViewById(R.id.tv_list_fragment).setOnClickListener(this);
+		findViewById(R.id.tv_list_github).setOnClickListener(this);
 	}
 
 
-	@Override
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.menu_list, menu);
@@ -39,7 +39,7 @@ public class ListActivity extends ActionBarActivity implements View.OnClickListe
 		}
 
 		return super.onOptionsItemSelected(item);
-	}
+	}*/
 
 	@Override
 	public void onClick(View v) {
@@ -49,6 +49,11 @@ public class ListActivity extends ActionBarActivity implements View.OnClickListe
 				break;
 			case R.id.tv_list_fragment:
 				startActivity(new Intent(this,MainFragmentActivity.class));
+				break;
+			case  R.id.tv_list_github:
+				Intent intent = new Intent(Intent.ACTION_VIEW);
+				intent.setData(Uri.parse("https://github.com/kaedea"));
+				startActivity(intent);
 				break;
 		}
 	}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SeamlessViewpagerHeader</string>
+    <string name="app_name">Seamless ViewPager Header</string>
     <string name="header_text">SeamlessViewpagerHeader offers a Viewpager with a scrollable header, like Android Lollipop Contact.</string>
     <string name="empty_text">Empty</string>
     <string name="tab_country">Country</string>
